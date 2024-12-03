@@ -19,3 +19,9 @@ body {
   background: #f7f7fa;
   font-family: Arial, Helvetica, sans-serif;
 }
+
+@media screen and (max-width: 640px) {
+  .patryx-login {
+    display: none;
+  }
+}
