@@ -16,7 +16,7 @@ import Patryx from "@/app/components/images/whiteP.svg"
 const navigation = [
   { name: "Dashboard", href: "/dashboard", current: false },
   { name: "Departments", href: "/departments", current: false },
-  { name: "Statistics", href: "/statistics", current: false },
+  // { name: "Statistics", href: "/statistics", current: false },
 ];
 
 function classNames(...classes) {

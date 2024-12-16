@@ -36,8 +36,14 @@ export default function Page() {
             }
           }
         );
+        const tomorrow = new Date();
+        tomorrow.setDate(tomorrow.getDate() + 1); // Add 1 day to today's date
+        const year = tomorrow.getFullYear();
+        const month = String(tomorrow.getMonth() + 1).padStart(2, '0'); // Months are 0-indexed
+        const day = String(tomorrow.getDate()).padStart(2, '0');
+        const tomorrowsDate = `${year}-${month}-${day}`;
         const attendanceResponse = await axios.get(
-          `https://school-project-backend-p17b.onrender.com/api/v1/attendance/attendance-mgmt/all-attendance?startDate=2024-11-15&endDate=2024-11-20`,
+          `https://school-project-backend-p17b.onrender.com/api/v1/attendance/attendance-mgmt/all-attendance?startDate=2024-11-15&endDate=${tomorrowsDate}`,
           {
             headers: {
               'Authorization': `Bearer ${jwt}`
@@ -64,10 +70,28 @@ export default function Page() {
     year: "numeric",
   });
 
+  const fetchAttendance = async (startDate, endDate, name) => {
+    setIsLoading(true);
+    const jwt = localStorage.getItem("jwt");
+    try {
+      const response = await axios.get(
+        `https://school-project-backend-p17b.onrender.com/api/v1/attendance/attendance-mgmt/all-attendance?startDate=${startDate}&endDate=${endDate}&name=${name}`,
+        {
+          headers: { Authorization: `Bearer ${jwt}` },
+        }
+      );
+      setAttendance(response.data.data);
+    } catch (error) {
+      console.error("Error fetching attendance data:", error);
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
   return (
     <>
       <Navbar />
-      <div className="min-h-screen bg-gray-50 p-4 md:p-8">
+      <div className="container mt-10 mx-auto p-6 min-h-screen bg-gray-50 md:p-8">
         {/* Header */}
         <header className="flex justify-between items-center pb-6 border-b border-gray-200">
           <div>
@@ -92,7 +116,7 @@ export default function Page() {
         <DashboardStats isLoading={isLoading} stats={stats} />
 
         {/* Employee Attendance */}
-        <AttendanceTable isLoading={isLoading} attendance={attendance} />
+        <AttendanceTable isLoading={isLoading} attendance={attendance} onSearch={fetchAttendance} />
       </div>
     </>
   );

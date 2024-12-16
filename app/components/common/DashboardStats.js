@@ -5,6 +5,7 @@ import earlyL from "../images/earlyL.svg"
 import employeeA from "../images/employeeA.svg"
 import lateA from "../images/lateA.svg"
 import present from "../images/present.svg"
+import Link from "next/link";
 
 export default function DashboardStats({ stats, isLoading }) {
 
@@ -50,6 +51,15 @@ export default function DashboardStats({ stats, isLoading }) {
                   <p className="text-2xl font-bold"> {stats.status.ABSENT || 0} </p>
                   <p className="text-sm text-gray-500">Employee Absent</p>
                 </div>
+              </div>
+              <div className="flex gap-4">
+                <Link href="/add-attendance">
+                  <button
+                    className="px-2 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 mt-6"
+                  >
+                    Add Attendance
+                  </button>
+                </Link>
               </div>
             </div>
 
