@@ -3,6 +3,7 @@ import Image from "next/image";
 import {
   Disclosure,
   DisclosureButton,
+  DisclosurePanel,
 } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import { useRouter } from "next/navigation";
@@ -85,6 +86,27 @@ export default function Navbar() {
               </div>
             </div>
           </div>
+
+          <DisclosurePanel className="md:hidden">
+            <div className="space-y-1 px-2 pb-3 pt-2 sm:px-3">
+              {navigation.map((item) => (
+                <DisclosureButton
+                  key={item.name}
+                  as="a"
+                  href={item.href}
+                  aria-current={item.current ? "page" : undefined}
+                  className={classNames(
+                    item.current
+                      ? "bg-blue-900 text-white"
+                      : "text-gray-300 hover:bg-blue-700 hover:text-white",
+                    "block rounded-md px-3 py-2 text-base font-medium"
+                  )}
+                >
+                  {item.name}
+                </DisclosureButton>
+              ))}
+            </div>
+          </DisclosurePanel>
         </Disclosure>
       </div>
     </>
