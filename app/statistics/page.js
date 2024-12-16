@@ -1,5 +1,5 @@
 "use client"
-import { useEffect, useState, } from "react";
+import { useEffect, useState, Suspense } from "react";
 import axios from "axios";
 import { useSearchParams } from "next/navigation";
 import { Bar } from "react-chartjs-2";
@@ -17,7 +17,7 @@ ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend)
 import Navbar from "../components/layout/Navbar";
 import LoadingSpinner from "../components/common/LoadingSpinner";
 
-export default function Page() {
+function StatisticsPage() {
   const [stats, setStats] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -232,4 +232,10 @@ export default function Page() {
     </>
   );
 };
+
+export default function Page() {
+  return <Suspense>
+    <StatisticsPage />
+  </Suspense>
+}
 
