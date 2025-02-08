@@ -1,5 +1,6 @@
 "use client"
 import { useEffect, useState, } from "react";
+import Link from "next/link";
 import axios from "axios";
 import LoadingSpinner from "./LoadingSpinner";
 import Image from "next/image";
@@ -73,8 +74,8 @@ export default function AttendanceTable({ attendance, isLoading, onSearch }) {
                         "Name",
                         "ID",
                         "Status",
-                        "Check-in",
-                        "Check-out",
+                        "Sign-in",
+                        "Sign-out",
                         "Schedule-in",
                         "Schedule-out",
                       ].map((header, idx) => (
@@ -127,7 +128,11 @@ export default function AttendanceTable({ attendance, isLoading, onSearch }) {
                           {attendee?.checkIn}
                         </td>
                         <td className="px-4 py-2">
-                          {attendee?.checkOut}
+                          {
+                            attendee.checkOut ?
+                            <> {attendee.checkOut} </> :
+                            <Link href={`/sign-out?attendanceId=${attendee.attendanceId}&employeeId=${attendee.employeeId}`} className="text-blue-600 hover:text-blue-800">sign-out</Link>
+                          }
                         </td>
                         <td className="px-4 py-2">{attendee?.scheduleIn}</td>
                         <td className="px-4 py-2">{attendee?.scheduleOut}</td>

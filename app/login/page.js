@@ -17,6 +17,7 @@ export default function Login() {
     const router = useRouter();
     const [error, setError] = useState(null);
     const [success, setSuccess] = useState(null);
+    const [showPassword, setShowPassword] = useState(false);
 
     const submit = async (e) => {
         e.preventDefault();
@@ -121,13 +122,19 @@ export default function Login() {
                                     Password
                                 </label>
                                 <input
-                                    type="password"
+                                    type={showPassword ? 'text' : 'password'}
                                     id="password"
                                     className="mt-1 mb-6 p-1.5 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm"
                                     placeholder="Enter your password"
                                     required
                                     onChange={handlePasswordChange}
                                 />
+                                <span
+                                //   className="absolute inset-y-0 right-3 top-8 flex items-center cursor-pointer text-gray-500"
+                                onClick={() => setShowPassword(!showPassword)}
+                                >
+                                {showPassword ? '🙈' : '👁️'}
+                                </span>
                             </div>
                             <div className="flex items-center justify-between mb-6">
                                 <div>

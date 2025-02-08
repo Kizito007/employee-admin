@@ -157,8 +157,8 @@ export default function Page() {
                         "ID",
                         "Role",
                         "Status",
-                        "Check-in",
-                        "Check-out",
+                        "Sign-in",
+                        "Sign-out",
                         "Actions",
                       ].map((header, idx) => (
                         <th key={idx} className="px-4 py-2">
