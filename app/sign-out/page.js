@@ -112,7 +112,7 @@ function CaptureUpload() {
             )}
 
             <div className="flex flex-col items-center justify-center min-h-screen p-6 bg-gray-100">
-                <h1 className="text-2xl font-bold mb-6 text-blue-600">Sign Out</h1>
+                <h1 className="text-2xl font-bold mb-6 text-purple-600">Sign Out</h1>
                 {/* Employee ID Input */}
                 {/* <div className="mb-6 w-full md:w-1/2">
                     <label htmlFor="employeeId" className="block mb-2 text-sm font-medium text-gray-700">
@@ -124,7 +124,7 @@ function CaptureUpload() {
                         value={employeeId}
                         onChange={(e) => setEmployeeId(e.target.value)}
                         placeholder="e.g., EMP12345"
-                        className="w-full px-3 py-2 border rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
+                        className="w-full px-3 py-2 border rounded-md shadow-sm focus:ring-purple-500 focus:border-purple-500"
                     />
                 </div> */}
 
@@ -138,7 +138,7 @@ function CaptureUpload() {
                         />
                         <button
                             onClick={captureImage}
-                            className="mt-4 px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700"
+                            className="mt-4 px-4 py-2 bg-purple-600 text-white rounded-md hover:bg-purple-700"
                         >
                             Capture Image
                         </button>

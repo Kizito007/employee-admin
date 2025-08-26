@@ -55,7 +55,7 @@ export default function DashboardStats({ stats, isLoading }) {
               <div className="flex gap-4">
                 <Link href="/add-attendance">
                   <button
-                    className="px-2 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 mt-6"
+                    className="px-2 py-2 bg-purple-600 text-white rounded-md hover:bg-purple-700 mt-6"
                   >
                     Add Attendance
                   </button>

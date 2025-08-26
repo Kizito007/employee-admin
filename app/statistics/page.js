@@ -131,7 +131,7 @@ function StatisticsPage() {
             type="date"
             value={startDate}
             onChange={(e) => setStartDate(e.target.value)}
-            className="w-full md:w-auto px-2 py-1 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500"
+            className="w-full md:w-auto px-2 py-1 border border-gray-300 rounded-md focus:ring-purple-500 focus:border-purple-500"
           />
         </div>
 
@@ -142,7 +142,7 @@ function StatisticsPage() {
             type="date"
             value={endDate}
             onChange={(e) => setEndDate(e.target.value)}
-            className="w-full md:w-auto px-2 py-1 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500"
+            className="w-full md:w-auto px-2 py-1 border border-gray-300 rounded-md focus:ring-purple-500 focus:border-purple-500"
           />
         </div>
 
@@ -152,7 +152,7 @@ function StatisticsPage() {
           <select
             value={selectedDepartment}
             onChange={(e) => setSelectedDepartment(e.target.value)}
-            className="w-full md:w-auto px-2 py-1 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500"
+            className="w-full md:w-auto px-2 py-1 border border-gray-300 rounded-md focus:ring-purple-500 focus:border-purple-500"
           >
             <option value="">Select Department</option>
             {departments.map((dept, idx) => (
@@ -166,7 +166,7 @@ function StatisticsPage() {
         {/* Search Button */}
         <div className="flex gap-4">
           <button
-            className="px-2 py-1 bg-blue-600 text-white rounded-md hover:bg-blue-700 mt-6"
+            className="px-2 py-1 bg-purple-600 text-white rounded-md hover:bg-purple-700 mt-6"
             onClick={() => handleSearch()}
           >
             Search

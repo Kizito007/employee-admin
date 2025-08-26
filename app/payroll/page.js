@@ -108,7 +108,7 @@ export default function Page() {
           isLoading ?
             <LoadingSpinner /> :
             <section className="mt-8">
-              <h2 className="text-lg font-bold text-gray-800 mb-4">Employee Attendance</h2>
+              <h2 className="text-lg font-bold text-gray-800 mb-4">Employee Payroll</h2>
 
               {/* Filter/Search Section */}
               <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-6">
@@ -155,7 +155,7 @@ export default function Page() {
                       {[
                         "Name",
                         "ID",
-                        "Role",
+                        "Gross Salary",
                         "Status",
                         "Sign-in",
                         "Sign-out",
@@ -187,7 +187,7 @@ export default function Page() {
                           </div>
                         </td>
                         <td className="px-4 py-2">{attendee.employeeId}</td>
-                        <td className="px-4 py-2">{attendee.role}</td>
+                        <td className="px-4 py-2">500,000</td>
                         <td className="px-4 py-2">
                           <span
                             className={`px-2 py-1 text-xs rounded-full ${attendee.arrivalStatus === "EARLY"

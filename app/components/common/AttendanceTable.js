@@ -33,7 +33,7 @@ export default function AttendanceTable({ attendance, isLoading, onSearch }) {
                   type="text"
                   placeholder="Search..."
                   onChange={(e) => setName(e.target.value)}
-                  className="w-full md:w-1/4 px-2 py-1 rounded-md border border-gray-300 shadow-sm focus:ring-blue-500 focus:border-blue-500"
+                  className="w-full md:w-1/4 px-2 py-1 rounded-md border border-gray-300 shadow-sm focus:ring-purple-500 focus:border-purple-500"
                 />
                 <div className="flex gap-4">
                   <div>
@@ -42,7 +42,7 @@ export default function AttendanceTable({ attendance, isLoading, onSearch }) {
                       type="date"
                       onChange={(e) => setStartDate(e.target.value)}
                       value={startDate}
-                      className="px-2 py-1 rounded-md border border-gray-300 shadow-sm focus:ring-blue-500 focus:border-blue-500"
+                      className="px-2 py-1 rounded-md border border-gray-300 shadow-sm focus:ring-purple-500 focus:border-purple-500"
                     />
                   </div>
                   <div>
@@ -51,12 +51,12 @@ export default function AttendanceTable({ attendance, isLoading, onSearch }) {
                       type="date"
                       onChange={(e) => setEndDate(e.target.value)}
                       value={endDate}
-                      className="px-2 py-1 rounded-md border border-gray-300 shadow-sm focus:ring-blue-500 focus:border-blue-500"
+                      className="px-2 py-1 rounded-md border border-gray-300 shadow-sm focus:ring-purple-500 focus:border-purple-500"
                     />
                   </div>
                   <div className="flex gap-4">
                     <button
-                      className="px-2 py-1 bg-blue-600 text-white rounded-md hover:bg-blue-700 mt-6"
+                      className="px-2 py-1 bg-purple-600 text-white rounded-md hover:bg-purple-700 mt-6"
                       onClick={() => handleSearch()}
                     >
                       Search
@@ -131,7 +131,7 @@ export default function AttendanceTable({ attendance, isLoading, onSearch }) {
                           {
                             attendee.checkOut ?
                             <> {attendee.checkOut} </> :
-                            <Link href={`/sign-out?attendanceId=${attendee.attendanceId}&employeeId=${attendee.employeeId}`} className="text-blue-600 hover:text-blue-800">sign-out</Link>
+                            <Link href={`/sign-out?attendanceId=${attendee.attendanceId}&employeeId=${attendee.employeeId}`} className="text-purple-600 hover:text-purple-800">sign-out</Link>
                           }
                         </td>
                         <td className="px-4 py-2">{attendee?.scheduleIn}</td>

@@ -103,7 +103,7 @@ export default function Page() {
               className="rounded-full" // Optional: Add any other class for styling
             />
             <div>
-              <h1 className="text-xl md:text-2xl font-bold text-gray-800">Hello, Engr. {user?.username} </h1>
+              <h1 className="text-xl md:text-2xl font-bold text-gray-800">Hello, {user?.username} </h1>
               <p className="text-sm text-gray-500">Welcome Back</p>
             </div>
           </div>

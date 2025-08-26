@@ -8,6 +8,7 @@ import LoadingSpinner from "@/app/components/common/LoadingSpinner";
 import login from "@/app/components/images/login.png"
 import p from "@/app/components/images/p.svg"
 import Patryx from "@/app/components/images/Patryx.svg"
+import Teklyn from "@/app/components/images/Teklyn.svg"
 import TransparentForm from "@/app/components/images/transparentForm.png"
 
 export default function Login() {
@@ -77,10 +78,10 @@ export default function Login() {
                         <Image src={login} alt="login-img" />
                         <div className="mt-5 text-center tracking-tight text-gray-700">
                             <div className="flex justify-center">
-                                <Image src={p} alt="p-logo" />
-                                <Image src={Patryx} alt="patryx-logo" />
+                                {/* <Image src={p} alt="p-logo" /> */}
+                                <Image src={Teklyn} alt="patryx-logo" />
                             </div>
-                            <p className="mt-5 text-center tracking-tight text-blue-900">
+                            <p className="mt-5 text-center tracking-tight text-purple-900">
                                 Empowering innovation, transforming ideas into solutions that elevate businesses and simplify lives.
                             </p>
                         </div>
@@ -94,7 +95,7 @@ export default function Login() {
                     backgroundRepeat: "no-repeat",
                     backgroundPosition: "center",
                     margin: "90px 20px",
-                    backgroundColor: "#0705A2",
+                    backgroundColor: "#B974FF",
                     borderRadius: "10px"
                 }}>
                     <div
@@ -111,7 +112,7 @@ export default function Login() {
                                 <input
                                     type="email"
                                     id="email"
-                                    className="mt-1 p-1.5 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm"
+                                    className="mt-1 p-1.5 block w-full rounded-md border-gray-300 shadow-sm focus:border-purple-500 focus:ring-purple-500 sm:text-sm"
                                     placeholder="Enter your email"
                                     required
                                     onChange={handleEmailChange}
@@ -124,7 +125,7 @@ export default function Login() {
                                 <input
                                     type={showPassword ? 'text' : 'password'}
                                     id="password"
-                                    className="mt-1 mb-6 p-1.5 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm"
+                                    className="mt-1 mb-6 p-1.5 block w-full rounded-md border-gray-300 shadow-sm focus:border-purple-500 focus:ring-purple-500 sm:text-sm"
                                     placeholder="Enter your password"
                                     required
                                     onChange={handlePasswordChange}
@@ -141,13 +142,13 @@ export default function Login() {
                                     <input
                                         type="checkbox"
                                         id="remember"
-                                        className="h-4 w-4 text-blue-600 border-gray-300 rounded"
+                                        className="h-4 w-4 text-purple-600 border-gray-300 rounded"
                                     />
                                     <label htmlFor="remember" className="ml-2 text-sm text-gray-600">
                                         Remember me
                                     </label>
                                 </div>
-                                <a href="#" className="text-sm text-blue-600 hover:underline">
+                                <a href="#" className="text-sm text-purple-600 hover:underline">
                                     Forgot password?
                                 </a>
                             </div>
@@ -155,7 +156,7 @@ export default function Login() {
                             <br />
                             <button
                                 type="submit"
-                                className="w-full bg-blue-600 text-white py-2 px-4 rounded-md hover:bg-blue-700 focus:outline-none"
+                                className="w-full bg-purple-600 text-white py-2 px-4 rounded-md hover:bg-purple-700 focus:outline-none"
                             >
                                 Log in
                             </button>

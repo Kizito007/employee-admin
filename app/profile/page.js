@@ -105,7 +105,7 @@ function ProfilePage() {
         <header className="flex flex-col lg:flex-row justify-between  items-start lg:items-center mb-8">
           <div className="mb-4 lg:mb-0">
             <Image src={employee?.photo?.url || pp} alt="profile-pic" width={48} height={48} className="rounded-full" />
-            <h1 className="mt-2 text-2xl font-bold text-gray-800">Engr. {employee.firstname} {employee.lastname} </h1>
+            <h1 className="mt-2 text-2xl font-bold text-gray-800">{employee.firstname} {employee.lastname} </h1>
             <p className="mt-2 text-sm text-gray-600"> {employee.department} Department</p>
             <address className="text-sm text-gray-500 mt-2 not-italic">
               {employee.address}
@@ -143,17 +143,17 @@ function ProfilePage() {
                     type="date"
                     onChange={handleStartDateChange}
                     value={startDate}
-                    className="w-full md:w-auto px-2 py-1 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500"
+                    className="w-full md:w-auto px-2 py-1 border border-gray-300 rounded-md focus:ring-purple-500 focus:border-purple-500"
                   />
                   <p className="mt-2 text-sm">End Date</p>
                   <input
                     type="date"
                     onChange={handleEndDateChange}
                     value={endDate}
-                    className="w-full md:w-auto px-2 py-1 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500"
+                    className="w-full md:w-auto px-2 py-1 border border-gray-300 rounded-md focus:ring-purple-500 focus:border-purple-500"
                   />
                   <div className="flex gap-4">
-                    <button className="px-2 py-1 bg-blue-600 text-white rounded-md hover:bg-blue-700" onClick={() => handleSearch()}>
+                    <button className="px-2 py-1 bg-purple-600 text-white rounded-md hover:bg-purple-700" onClick={() => handleSearch()}>
                       Search
                     </button>
                     <Link href={`/statistics?employeeId=${employeeId}`} className="px-2 py-1 bg-gray-100 text-gray-800 rounded-md hover:bg-gray-200">
