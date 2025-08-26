@@ -156,7 +156,7 @@ export default function Page() {
                         "Name",
                         "ID",
                         "Gross Salary",
-                        "Status",
+                        "Deductions",
                         "Sign-in",
                         "Sign-out",
                         "Actions",
@@ -189,7 +189,7 @@ export default function Page() {
                         <td className="px-4 py-2">{attendee.employeeId}</td>
                         <td className="px-4 py-2">500,000</td>
                         <td className="px-4 py-2">
-                          <span
+                          {/* <span
                             className={`px-2 py-1 text-xs rounded-full ${attendee.arrivalStatus === "EARLY"
                               ? "bg-green-100 text-green-800"
                               : attendee.arrivalStatus === "LATE"
@@ -200,7 +200,8 @@ export default function Page() {
                               }`}
                           >
                             {attendee.arrivalStatus}
-                          </span>
+                          </span> */}
+                          <span>5%</span>
                         </td>
                         <td className="px-4 py-2">
                           {/* <Image
