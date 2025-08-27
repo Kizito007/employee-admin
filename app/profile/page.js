@@ -3,6 +3,7 @@ import { useEffect, useState, Suspense } from "react";
 import axios from "axios";
 import { useSearchParams } from "next/navigation";
 import Navbar from "../components/layout/Navbar";
+import Sidebar from "../components/layout/Sidebar";
 import Image from "next/image";
 import earlyA from "../components/images/earlyA.svg"
 import earlyL from "../components/images/earlyL.svg"
@@ -100,6 +101,7 @@ function ProfilePage() {
   return (
     <>
       <Navbar />
+      <Sidebar />
       <div className="container mt-10 mx-auto p-6 min-h-screen bg-gray-50 lg:p-8">
         {/* Header Section */}
         <header className="flex flex-col lg:flex-row justify-between  items-start lg:items-center mb-8">
@@ -121,8 +123,8 @@ function ProfilePage() {
               <p className="text-sm font-bold text-gray-800 mt-1"> {employee.employeeId} </p>
             </div>
             <div className="p-6 bg-white rounded-md shadow-md">
-              <p className="text-sm text-gray-600">Phone Number</p>
-              <p className="text-sm font-bold text-gray-800 mt-1"> {employee.phone} </p>
+              <p className="text-sm text-gray-600">Salary</p>
+              <p className="text-sm font-bold text-gray-800 mt-1"> 500,000 </p>
             </div>
             <div className="p-6 bg-white rounded-md shadow-md">
               <p className="text-sm text-gray-600">Email</p>

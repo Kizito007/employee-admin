@@ -4,6 +4,7 @@ import Image from "next/image";
 import axios from "axios";
 import Link from "next/link";
 import Navbar from "../components/layout/Navbar";
+import Sidebar from "../components/layout/Sidebar";
 import LoadingSpinner from "../components/common/LoadingSpinner";
 import pp from "../components/images/pp.jpg"
 
@@ -85,6 +86,7 @@ export default function Page() {
   return (
     <>
       <Navbar />
+      <Sidebar />
       <div className="container mt-10 mx-auto p-6 min-h-screen bg-gray-50 md:p-8">
 
         {/* Department Filters */}

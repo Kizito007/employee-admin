@@ -4,8 +4,12 @@ import Image from "next/image";
 import axios from "axios";
 import Link from "next/link";
 import Navbar from "../components/layout/Navbar";
+import Sidebar from "../components/layout/Sidebar";
 import LoadingSpinner from "../components/common/LoadingSpinner";
 import pp from "../components/images/pp.jpg"
+import { Description, Field, Label, Select } from '@headlessui/react'
+import { ChevronDownIcon } from '@heroicons/react/20/solid'
+import clsx from 'clsx'
 
 export default function Page() {
   const departments = [
@@ -85,22 +89,41 @@ export default function Page() {
   return (
     <>
       <Navbar />
+      <Sidebar />
       <div className="container mt-10 mx-auto p-6 min-h-screen bg-gray-50 md:p-8">
 
-        {/* Department Filters */}
-        <section className="mt-6 mb-10 flex flex-wrap gap-3">
-          {departments.map((dept, idx) => (
-            <button onClick={() => handleClick(dept)}
-              key={idx}
-              className={`px-4 py-2 rounded-md text-sm font-medium ${department === dept
-                ? "bg-purple-600 text-white"
-                : "border-gray-950 text-gray-800 hover:bg-purple-600 hover:text-white"
-                }`}
+      <div className="w-full max-w-md px-4">
+      <Field>
+        <Label className="text-sm/6 font-medium ">Departments</Label>
+        {/* <Description className="text-sm/6 text-white/50">This will be visible to clients on the project.</Description> */}
+        <div className="relative">
+          <Select
+            className={clsx(
+              'mt-3 block w-full appearance-none rounded-lg border-none px-3 py-1.5 text-sm/6 ',
+              'focus:not-data-focus:outline-none data-focus:outline-2 data-focus:-outline-offset-2 data-focus:outline-white/25',
+              // Make the text of each option black on Windows
+              '*:text-black'
+            )}
+          >
+            {departments.map((dept, idx) => (
+            <option onClick={() => handleClick(dept)}
+              key={idx} value={dept}
             >
               {dept}
-            </button>
+            </option>
           ))}
-        </section>
+            {/* <option value="active">Active</option>
+            <option value="paused">Paused</option>
+            <option value="delayed">Delayed</option>
+            <option value="canceled">Canceled</option> */}
+          </Select>
+          <ChevronDownIcon
+            className="group pointer-events-none absolute top-2.5 right-2.5 size-4 "
+            aria-hidden="true"
+          />
+        </div>
+      </Field>
+    </div>
 
         {/* Employee Attendance Section */}
 
@@ -157,8 +180,9 @@ export default function Page() {
                         "ID",
                         "Gross Salary",
                         "Deductions",
-                        "Sign-in",
-                        "Sign-out",
+                        "Additions",
+                        // "Sign-in",
+                        // "Sign-out",
                         "Actions",
                       ].map((header, idx) => (
                         <th key={idx} className="px-4 py-2">
@@ -204,16 +228,14 @@ export default function Page() {
                           <span>5%</span>
                         </td>
                         <td className="px-4 py-2">
-                          {/* <Image
-                src={clock}
-                alt="profile"
-                className="w-8 h-8 rounded-full object-cover"
-              /> */}
+                          <span>3%</span>
+                        </td>
+                        {/* <td className="px-4 py-2">
                           {attendee.checkIn}
                         </td>
                         <td className="px-4 py-2">
                           {attendee.checkOut}
-                        </td>
+                        </td> */}
                         <td className="px-4 py-2 border-b">
                           <Link href={`/profile?employeeId=${attendee.employeeId}`} className="text-purple-600 hover:text-purple-800">View</Link>
                         </td>

@@ -36,10 +36,10 @@ export default function Navbar() {
         <Disclosure as="nav" style={{ background: "" }}>
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div className="flex h-16 items-center justify-between">
-              <Image src={Teklyn} alt="patryx-logo" />
+              <Image src={Teklyn} style={{ width: "120px" }} alt="patryx-logo" />
               <div className="flex items-center">
                 <div className="hidden md:block">
-                  <div className="ml-10 flex items-baseline space-x-4">
+                  {/* <div className="ml-10 flex items-baseline space-x-4">
                     {navigation.map((item) => (
                       <a
                         key={item.name}
@@ -55,7 +55,7 @@ export default function Navbar() {
                         {item.name}
                       </a>
                     ))}
-                  </div>
+                  </div> */}
                 </div>
               </div>
               <div>

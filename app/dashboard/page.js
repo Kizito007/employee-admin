@@ -4,6 +4,7 @@ import Image from "next/image";
 import axios from "axios";
 import { useAuth } from "../components/hooks/useAuth";
 import Navbar from "../components/layout/Navbar";
+import Sidebar from "../components/layout/Sidebar";
 import DashboardStats from "../components/common/DashboardStats";
 import AttendanceTable from "../components/common/AttendanceTable";
 import pp from "../components/images/pp.jpg"
@@ -91,6 +92,7 @@ export default function Page() {
   return (
     <>
       <Navbar />
+      <Sidebar />
       <div className="container mt-10 mx-auto p-6 min-h-screen bg-gray-50 md:p-8">
         {/* Header */}
         <header className="flex justify-between items-center pb-6 border-b border-gray-200">
