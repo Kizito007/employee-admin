@@ -11,13 +11,32 @@ export default function AttendanceTable({ attendance, isLoading, onSearch }) {
   const [startDate, setStartDate] = useState("");
   const [endDate, setEndDate] = useState("");
   const [name, setName] = useState("");
+  const [employeeId, setEmployeeId] = useState("");
   const [stats, setStats] = useState({});
   const [loader, setLoader] = useState(false);
 
   const handleSearch = async () => {
     onSearch(startDate, endDate, name)
+    setLoader(true);
+    isLoading = false
   };
-  
+
+  // Debounce for employeeId search
+  useEffect(() => {
+    if (employeeId === "") {
+      onSearch(startDate, endDate, name, employeeId);
+      return;
+    }
+    const timeout = setTimeout(() => {
+      onSearch(startDate, endDate, name, employeeId);
+    }, 500);
+    return () => clearTimeout(timeout);
+  }, [employeeId]);
+
+  useEffect(() => {
+    onSearch(startDate, endDate, name, employeeId);
+  }, [startDate, endDate, name]);
+
   return (
     <>
       {
@@ -29,10 +48,16 @@ export default function AttendanceTable({ attendance, isLoading, onSearch }) {
 
               {/* Filter/Search Section */}
               <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-6">
+                {/* <input
+                  type="text"
+                  placeholder="Search name..."
+                  onChange={(e) => setName(e.target.value)}
+                  className="w-full md:w-1/4 px-2 py-1 rounded-md border border-gray-300 shadow-sm focus:ring-purple-500 focus:border-purple-500"
+                /> */}
                 <input
                   type="text"
-                  placeholder="Search..."
-                  onChange={(e) => setName(e.target.value)}
+                  placeholder="Search employee ID..."
+                  onChange={(e) => setEmployeeId(e.target.value)}
                   className="w-full md:w-1/4 px-2 py-1 rounded-md border border-gray-300 shadow-sm focus:ring-purple-500 focus:border-purple-500"
                 />
                 <div className="flex gap-4">

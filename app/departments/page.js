@@ -25,6 +25,7 @@ export default function Page() {
   const [startDate, setStartDate] = useState("");
   const [endDate, setEndDate] = useState("");
   const [department, setDepartment] = useState("");
+  const [employeeId, setEmployeeId] = useState("");
 
   useEffect(() => {
     const fetchAttendance = async () => {
@@ -37,11 +38,12 @@ export default function Page() {
         const day = String(tomorrow.getDate()).padStart(2, '0');
         const tomorrowsDate = `${year}-${month}-${day}`;
         const attendanceResponse = await axios.get(
-          `https://school-project-backend-p17b.onrender.com/api/v1/attendance/attendance-mgmt/all-attendance?startDate=2024-11-15&endDate=${tomorrowsDate}`,
+          `https://school-project-backend-p17b.onrender.com/api/v1/attendance/attendance-mgmt/all-attendance`,
           {
             headers: {
               'Authorization': `Bearer ${jwt}`
-            }
+            },
+            params: { startDate: '2024-11-15', endDate, department, employeeId }
           }
         );
 
@@ -55,6 +57,32 @@ export default function Page() {
 
     fetchAttendance();
   }, []);
+
+  useEffect(() => {
+    // Only trigger if any filter is set
+    if (startDate || endDate || department) {
+      const fetchFilteredAttendance = async () => {
+        setIsLoading(true);
+        try {
+          const jwt = localStorage.getItem('jwt')
+          const attendanceResponse = await axios.get(
+            `https://school-project-backend-p17b.onrender.com/api/v1/attendance/attendance-mgmt/all-attendance`,
+            {
+              headers: {
+                'Authorization': `Bearer ${jwt}`
+              },
+              params: { startDate: '2024-11-15', endDate, department, employeeId }
+            }
+          );
+          setAttendance(attendanceResponse.data.data)
+        } catch (err) {
+          setError("Failed to fetch stats. Please try again later.");
+        }
+        setIsLoading(false);
+      };
+      fetchFilteredAttendance();
+    }
+  }, [startDate, endDate, department]);
 
   const handleStartDateChange = (e) => {
     setStartDate(e.target.value);
@@ -117,6 +145,8 @@ export default function Page() {
                 <input
                   type="text"
                   placeholder="Search..."
+                  // Add onChange handler if you want to filter by name or employeeId
+                  onChange={(e) => setEmployeeId(e.target.value)}
                   className="w-full md:w-1/4 px-2 py-1 rounded-md border border-gray-300 shadow-sm focus:ring-purple-500 focus:border-purple-500"
                 />
                 <div className="flex gap-4">

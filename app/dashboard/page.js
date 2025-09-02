@@ -71,14 +71,15 @@ export default function Page() {
     year: "numeric",
   });
 
-  const fetchAttendance = async (startDate, endDate, name) => {
+  const fetchAttendance = async (startDate, endDate, employeeId) => {
     setIsLoading(true);
     const jwt = localStorage.getItem("jwt");
     try {
       const response = await axios.get(
-        `https://school-project-backend-p17b.onrender.com/api/v1/attendance/attendance-mgmt/all-attendance?startDate=${startDate}&endDate=${endDate}&name=${name}`,
+        `https://school-project-backend-p17b.onrender.com/api/v1/attendance/attendance-mgmt/all-attendance`,
         {
           headers: { Authorization: `Bearer ${jwt}` },
+          params: { startDate, endDate, employeeId }
         }
       );
       setAttendance(response.data.data);
@@ -115,7 +116,7 @@ export default function Page() {
         </header>
 
         {/* Stats Section */}
-        <DashboardStats isLoading={isLoading} stats={stats} />
+        <DashboardStats stats={stats} />
 
         {/* Employee Attendance */}
         <AttendanceTable isLoading={isLoading} attendance={attendance} onSearch={fetchAttendance} />
